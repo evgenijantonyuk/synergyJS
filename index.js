@@ -1,55 +1,109 @@
 
+// Урок 10.3
+// Конструкция SWICh
+//  условная инструкция IF
+let age = 17;
+if (age < 18) {
+ console.log('Несовершеннолетний');
+} else {
+ if (age >= 18) {
+  console.log('Взрослый');
+ }
+}
+// как вариант ==========================
+// if (age >= 18) {
+//  console.log('Взрослый');
+// }
+// =====================================
+// 0,  " ", null, undefined, Nan - falsy-значения, всегда дают значение false
+// Тернарный(условный) оператор
+let access;
+if (age < 18) {
+ access = false;
+}
+ else {
+ access = true;
+}
+ console.log(access);
+// Тернарный оператор - в одну строку... теряет читаемость
+ let result = (age > 18) ? false : true;
+ console.log(result);
+ 
+//  логические операторы
+//                              && конюнъюнкция / логическое "И" / true И true = true
+//                              || дезъюнкция / логическое "ИЛИ" / true ИЛИ false = true
+//                              ! инверсия / логическое "НЕ" / !true == false
+//                              !! двойная инверсия / !! true == true
+console.log( 1 || 1)  // 1
+console.log(0 || 1)   // 1
+console.log( 1 || 0)  // 1
+console.log(0 || 0)   // 0
 
-// Домашняя раблта 10.2
-let homeWork = Number('10.2');
-console.log(homeWork + ' ' + typeof (homeWork));
+if( 1 || 0) {
+ console.log('Правда')
+}
 
-let task1 = 'Количество секунд в часе';
-console.log(`Тема: ${task1}`);
+let hour = 9;
+if (hour < 10 || hour > 18) {
+ console.log('Closed');
+}
+else {
+ console.log('Open');
+}
 
-let minutesPerHour = 60; // кол-во минут в часе
-let secondsPerMinutes = 60; // кол-во секунд в минуте
-let totalSecondsPerHour = minutesPerHour * secondsPerMinutes; // кол-во секунд
+// ИЛИ "||" находид первое истинное значение - true
+console.log( null || 0 || 1); // 1
 
-console.log(totalSecondsPerHour);
-console.log(`В часе ${totalSecondsPerHour} сеунд`);
+// && - оператор принимает true только если оба зачения правдивы
 
-// =============================================================================
-let startNumber = 0;
-console.log(startNumber);
+console.log(true && true)  // true
+console.log(true && false) //  false
+console.log(false && true) //  false
+console.log(false && false) //  false
 
-startNumber += 7;
-console.log(startNumber);
+let login = 'Anna', pass = '123';
+let loginFromDB = 'Anna', passwordFromDB = '123';
 
- startNumber *= 4;
- console.log(startNumber);
+if (login === loginFromDB && pass === passwordFromDB) {
+ console.log('Добро пожаловать');
+}
+else if (login === loginFromDB) {
+ console.log('Проверьте пароль');
+}
+else {
+ console.log('Пройдите регистрацию');
+}
+// ИЛИ "&&" находид первое ложное значение - false
+console.log(5 && 3 && null)  // null
 
-startNumber -= 8;
-console.log(startNumber);
+// инверсия "НЕ - НЕ"
+console.log(!true) //false
+console.log(!0)  //true
 
-startNumber /= 4;
-console.log(startNumber);
+console.log(!!'not empty') //true
+console.log(!!null)  //false
 
-startNumber **= 3;
-console.log(startNumber);
+// конструкция SWITCH
+let num = 3, seasons;
+switch (num) {
+ case 1:
+  seasons = 'Winter';
+  break;
+ case 2:
+  seasons = 'Spring';
+  break;
+ case 3:
+  seasons = 'Summer';
+  break;
+ case 4:
+  seasons = 'Fall';
+  break;
+ default:
+  seasons = 'Значение не найдено';
+}
+console.log(seasons);
 
-startNumber %= 5;
-console.log(startNumber);
 
-// ===========================================================================
-console.log(5 > 4); //true
-
-console.log('ананас' > 'яблоко'); //false
-
-console.log('2' > '12'); //true
-
-console.log(undefined == null); //true
-
-console.log(undefined === null); //false
-
-console.log(null == '0'); //false
-
-console.log(null === +'0'); //false
 
 
 
