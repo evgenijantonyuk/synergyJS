@@ -1,111 +1,109 @@
 
-// Урок 10.3
-// Конструкция SWICh
-//  условная инструкция IF
-let age = 17;
-if (age < 18) {
- console.log('Несовершеннолетний');
-} else {
- if (age >= 18) {
-  console.log('Взрослый');
- }
-}
-// как вариант ==========================
-// if (age >= 18) {
-//  console.log('Взрослый');
+// Доманее задание 10.3
+let homeWork = 'Доманее задание 10.3';
+console.log(homeWork)
+//  ============================ конструкция if ===========================
+// let hourPart = 33
+//
+// if (hourPart < 1 && hourPart <= 15) {
+//  console.log('Перая четверть часа')
 // }
-// =====================================
-// 0,  " ", null, undefined, Nan - falsy-значения, всегда дают значение false
-// Тернарный(условный) оператор
-let access;
-if (age < 18) {
- access = false;
+//
+// if (hourPart >= 15 && hourPart <= 30) {
+//  console.log('Вторая четверть часа')
+// }
+//
+// if (hourPart >= 30 && hourPart <= 45) {
+//  console.log('Третья четверть часа')
+// }
+//
+// if (hourPart >= 45 && hourPart <= 60) {
+//  console.log('Четвертая четверть часа')
+// }
+//
+// if (hourPart > 60) {
+//  console.log('Число больше количества минут в часе')
+// }
+
+// ====================== конструкция if else if =================================
+
+let hourPart = 35;
+
+if (hourPart > 0 && hourPart <= 15)
+{
+ console.log('Перая четверть часа');
 }
- else {
- access = true;
+else if (hourPart >= 15 && hourPart <= 30)
+{
+ console.log('Вторая четверть часа');
 }
- console.log(access);
-// Тернарный оператор - в одну строку... теряет читаемость
- let result = (age > 18) ? false : true;
- console.log(result);
- 
-//  логические операторы
-//                              && конюнъюнкция / логическое "И" / true И true = true
-//                              || дезъюнкция / логическое "ИЛИ" / true ИЛИ false = true
-//                              ! инверсия / логическое "НЕ" / !true == false
-//                              !! двойная инверсия / !! true == true
-console.log( 1 || 1)  // 1
-console.log(0 || 1)   // 1
-console.log( 1 || 0)  // 1
-console.log(0 || 0)   // 0
-
-if( 1 || 0) {
- console.log('Правда')
+else if (hourPart >= 30 && hourPart <= 45)
+{
+ console.log('Третья четверть часа');
+}
+else if (hourPart >= 45 && hourPart <= 60)
+{
+ console.log('Четвертая четверть часа');
+} else {
+ console.log('Число больше количества минут в часе')
 }
 
-let hour = 9;
-if (hour < 10 || hour > 18) {
- console.log('Closed');
-}
-else {
- console.log('Open');
-}
-
-// ИЛИ "||" находид первое истинное значение - true
-console.log( null || 0 || 1); // 1
-
-// && - оператор принимает true только если оба зачения правдивы
-
-console.log(true && true)  // true
-console.log(true && false) //  false
-console.log(false && true) //  false
-console.log(false && false) //  false
-
-let login = 'Anna', pass = '123';
-let loginFromDB = 'Anna', passwordFromDB = '123';
-
-if (login === loginFromDB && pass === passwordFromDB) {
- console.log('Добро пожаловать');
-}
-else if (login === loginFromDB) {
- console.log('Проверьте пароль');
-}
-else {
- console.log('Пройдите регистрацию');
-}
-// ИЛИ "&&" находид первое ложное значение - false
-console.log(5 && 3 && null)  // null
-
-// инверсия "НЕ - НЕ"
-console.log(!true) //false
-console.log(!0)  //true
-
-console.log(!!'not empty') //true
-console.log(!!null)  //false
-
-// конструкция SWITCH
-let num = 3, seasons;
-switch (num) {
+// ========================== SWITCH ====================================
+let number = 7, seasonMonth;
+switch (number) {
  case 1:
-  seasons = 'Winter';
+  seasonMonth = 'Зима, Январь.';
   break;
  case 2:
-  seasons = 'Spring';
+  seasonMonth = 'Зима, Февраль.';
   break;
  case 3:
-  seasons = 'Summer';
+  seasonMonth = 'Весна, Март.';
   break;
  case 4:
-  seasons = 'Fall';
+  seasonMonth = 'Весна, Апрель.';
+  break;
+ case 5:
+  seasonMonth = 'Весна, Май.';
+  break;
+ case 6:
+  seasonMonth = 'Лето, Июнь.';
+  break;
+ case 7:
+  seasonMonth = 'Лето, Июль.';
+  break
+ case 8:
+  seasonMonth = 'Лето, Август.';
+  break;
+ case 9:
+  seasonMonth = 'Осень, Сентябрь.';
+  break;
+ case 10:
+  seasonMonth = 'Осень, Октябрь.';
+  break;
+ case 11:
+  seasonMonth = 'Осень, Ноябрь.';
+  break;
+ case 12:
+  seasonMonth = 'Зима, Декабрь.';
   break;
  default:
-  seasons = 'Значение не найдено';
+  seasonMonth = 'Такого месяца не существует...';
 }
-console.log(seasons);
+console.log(seasonMonth);
 
+// ================================
+let digit = 3;
 
+if (digit % 2 === 0) {
+ digit = digit ** 2;
+//  сокращенная запись: digit **= 2
+} else {
+ digit = digit ** 3;
+ //  сокращенная запись: digit **= 3
+}
 
-
+console.log(digit)
 
 
 
