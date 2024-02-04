@@ -1,59 +1,104 @@
+let obj1 = new Object();   // конструктор объекта
+let obj2 = {};                // литерал объекта
 
-console.log('Домашнее задание к уроку 10.5');
-//======================
-console.log('Задание 1');
+let autorizedUser = {
+    name: 'John',
+    login: 'JD_scrubs',
+    year: 1987,
+    age: 2024 - 1987,
+    phone: '8(923)888-56-76',
+    'has friends': true
+};
 
-let string = 'luke, I am your father';
-console.log(`Строка до преобразования - ${string}`);
+console.log(autorizedUser);
+console.log(autorizedUser.name);
+console.log(autorizedUser.login);
+// console.log(autorizedUser.has friends);  ошибка
+console.log(autorizedUser["has friends"]);
 
-string = string[0].toUpperCase() + string.slice(1);
-console.log(`Строка после преобразования - ${string}`);
+autorizedUser.isMale = true;
+console.log(autorizedUser);
 
-// ============================
-console.log('Задание 2');
+delete autorizedUser.age;
+console.log(autorizedUser);
 
-let fistString = 'AbcdEfg';
-let secondString = 'abCDEFg';
+const userFullName = {
+    firstName: 'John',
+    surname: 'Townsend,'
+}
+console.log(userFullName);
 
-console.log(`Первая строка - ${fistString}`);
-console.log(`Вторая строка - ${secondString}`);
+userFullName.firstName = 'Petr';
+console.log(userFullName);
 
-console.log(fistString.localeCompare(secondString)); // Строки не равны - 1
+let fruit = 'pineApples';
+let market = {
+    [fruit]: 5,  //  pineApples: 5
+};
+console.log(market['pineApples']);
+console.log(market.pineApples);
+console.log('pineApples' in market);
+console.log('apples' in market);
 
-fistString = fistString.toUpperCase();
-secondString = secondString.toUpperCase();
-
-console.log(`Первая строка после преобразования - ${fistString}`);
-console.log(`Вторая строка после преобразования - ${secondString}`);
-
-console.log(fistString.localeCompare(secondString)); // Строки равны - 0
-console.log(`Строка "${fistString}" равна строке "${secondString}"`)
-
-// ==============================
-console.log('Зфдание 3')
-
-let arrayEars = [2000, 2001, 2002, 2003, 2004, 2005];
-    let longEars = [];
-    
-for (let i = 0; i < arrayEars.length; i++) {
-    if ((arrayEars[i] % 4 === 0 && arrayEars[i] % 100 !== 0) || (arrayEars[i] % 100 === 0 && arrayEars[i] % 400 === 0)) {
-        longEars.push(arrayEars[i])
-    }
+console.log('Перебор значений объектов: ');
+for (let key in autorizedUser) {
+    console.log(key, autorizedUser[key])
 }
 
-    console.log(`Високосные года - ${longEars}`)
+// метод MAP
+let map = new Map;
 
-//=======================================
-console.log('Зфдание 4');
-    
-    let numbersArray = [ 6, 187, 66, 4, 67, 30, 18 ]; // оригинальный массив
-// делаем копию, чтобы оригинальный массив "numbersArray" не менялся и сортируем массив "sorted" методом "sort"
-    let sorted = numbersArray.slice().sort((a, b) => a - b);
-    
-    console.log(`Оригинальный массив ${numbersArray} и сортированный методом .sort() ${sorted}`);
+map.set('1', 'stringAsKey');
+map.set(1, 'numAsKey');
+map.set(true, 'boolAsKey');
 
-    sorted.reverse();
+//Методы
+console.log(map);
+console.log(map.get('1'));
+console.log(map.has(false));
+console.log(map.size);
+console.log(map.delete(1));
+console.log(map);
+console.log(map.has(1));
+map.clear();
+console.log(map)
 
-    console.log(`Сортированный методом .reverse() массив ${sorted}`); // Массив сортируется в обратном порядке
+// перебор значений
+let clients = new Map([
+    ['Jack', 1994],
+    ['Bob', 1997],
+    ['Alex', 1987],
+])
+console.log(clients)
+for (let name of clients.keys()) {
+    console.log(name)
+}
+for (let year of clients.values()) {
+    console.log(year)
+}
+for (let value of clients) {
+    console.log(value)
+}
 
-// ===================================================================================================================
+clients.forEach((value,key, map) => {
+    console.log(`${key}: ${value}`)
+});
+
+// SET
+let set = new Set;
+let john = {name: "John"};
+let pete = {name: "Pete"};
+let mary = {name: "Mary"};
+
+set.add(john);
+set.add(pete);
+set.add(mary);
+set.add(john);   // нельзя добавить значение
+set.add(mary);   //  которое там уже было, дублирующие значения туда положить нельзя!
+
+console.log(set.size);
+console.log(set);
+
+for (let user of set) {
+    console.log(user.name)   //  John (потом Pete и Mary)
+}
