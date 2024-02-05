@@ -1,104 +1,52 @@
-let obj1 = new Object();   // конструктор объекта
-let obj2 = {};                // литерал объекта
-
-let autorizedUser = {
-    name: 'John',
-    login: 'JD_scrubs',
-    year: 1987,
-    age: 2024 - 1987,
-    phone: '8(923)888-56-76',
-    'has friends': true
-};
-
-console.log(autorizedUser);
-console.log(autorizedUser.name);
-console.log(autorizedUser.login);
-// console.log(autorizedUser.has friends);  ошибка
-console.log(autorizedUser["has friends"]);
-
-autorizedUser.isMale = true;
-console.log(autorizedUser);
-
-delete autorizedUser.age;
-console.log(autorizedUser);
-
-const userFullName = {
-    firstName: 'John',
-    surname: 'Townsend,'
+console.log('Домашнее задание к уроку 10,6');
+// =========================================================================================
+console.log('Создаем объект дни недели:');
+// =================================== OBJECT ============================================
+let daysOfWeek = {
+    1: 'Понедельник',
+    2: 'Вторник',
+    3: 'Среда',
+    4: 'Четверг',
+    5: 'Пятница',
+    6: 'Суббота',
+    7: 'Воскресенье',
 }
-console.log(userFullName);
+console.log(daysOfWeek);
+console.log('Выводим в консоль - "Пятница":')
+console.log(daysOfWeek[5]); // выводим в консоль "Пятница"
 
-userFullName.firstName = 'Petr';
-console.log(userFullName);
+console.log('Дни недели с удаленным днем - "Четверг":')
+delete daysOfWeek[4];  // удаляем из объекта "Четверг"
+console.log(daysOfWeek);
 
-let fruit = 'pineApples';
-let market = {
-    [fruit]: 5,  //  pineApples: 5
-};
-console.log(market['pineApples']);
-console.log(market.pineApples);
-console.log('pineApples' in market);
-console.log('apples' in market);
+//  =================================== MAP ======================================
 
-console.log('Перебор значений объектов: ');
-for (let key in autorizedUser) {
-    console.log(key, autorizedUser[key])
+console.log('Создаем объект дни недели:');
+
+let days = new Map;
+
+days.set(1, 'Понедельник.');
+days.set(2, 'Вторник.');
+days.set(3, 'Среда.');
+days.set(4, 'Четверг.');
+days.set(5, 'Пятница.');
+days.set(6, 'Суббота.');
+days.set(7, 'Воскресенье.');
+
+console.log(days)
+console.log('Выводим в консоль - "Пятница":')
+console.log(days.get(5)); // выводим в консоль "Пятница"
+// Перебор массива
+console.log('Перебор массива')
+for (let day of days) {
+    console.log(day)
 }
 
-// метод MAP
-let map = new Map;
+console.log('Дни недели с удаленным днем - "Четверг":')
+console.log(days.delete(4));  // удаляем из объекта "Четверг"
 
-map.set('1', 'stringAsKey');
-map.set(1, 'numAsKey');
-map.set(true, 'boolAsKey');
+console.log(days)
 
-//Методы
-console.log(map);
-console.log(map.get('1'));
-console.log(map.has(false));
-console.log(map.size);
-console.log(map.delete(1));
-console.log(map);
-console.log(map.has(1));
-map.clear();
-console.log(map)
 
-// перебор значений
-let clients = new Map([
-    ['Jack', 1994],
-    ['Bob', 1997],
-    ['Alex', 1987],
-])
-console.log(clients)
-for (let name of clients.keys()) {
-    console.log(name)
-}
-for (let year of clients.values()) {
-    console.log(year)
-}
-for (let value of clients) {
-    console.log(value)
-}
 
-clients.forEach((value,key, map) => {
-    console.log(`${key}: ${value}`)
-});
 
-// SET
-let set = new Set;
-let john = {name: "John"};
-let pete = {name: "Pete"};
-let mary = {name: "Mary"};
-
-set.add(john);
-set.add(pete);
-set.add(mary);
-set.add(john);   // нельзя добавить значение
-set.add(mary);   //  которое там уже было, дублирующие значения туда положить нельзя!
-
-console.log(set.size);
-console.log(set);
-
-for (let user of set) {
-    console.log(user.name)   //  John (потом Pete и Mary)
-}
