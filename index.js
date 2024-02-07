@@ -1,97 +1,78 @@
-console.log('Функции. Урок 10,7');
-// Фанкшин декларайшн
-function greetingAnna() {
-    console.log('Greeting Anna!');
-}
-greetingAnna()
-
-let userName = 'Evgenij';   // Глобальные переменные
-function greetingUser() {
-    let greeting = 'Hello, ' + userName;
-    console.log(greeting)
-}
-greetingUser()
-
-function greetingUser1() {
-    userName = 'Ivan';   // Локальная переменные
-    let greeting = 'Hello, ' + userName;
-    console.log(greeting)
-}
-greetingUser1()
-console.log(userName)// Изменили глобальную переменную с помощью присвоения имени переменной внутри функции
-console.log(userName)
-
-function greetUser(userName) {
-    userName = userName + '!';
-    let greeting1 = 'Hello, ' + userName;
-    console.log(greeting1)
-}
-userName = 'John'
-greetUser(userName)
-console.log(userName)
-
-// Аргументы функции по умолчанию
-function greetUser2(userName, text = 'Привет, ') {
-    userName = userName + '!';
-    let greeting = text +  userName;
-    console.log(greeting)
-}
-greetUser2(userName)
-greetUser2(userName, 'Hi, ')
-
-// Возврат значений
-function howReturnWorks() {
-    // return 8;
-    return 9;
-}
-console.log(howReturnWorks())
-
-function getSum(a, b) {
-    sum = a + b;
-    return sum;
-}
-console.log(getSum(5, 7));
-
-
-function checkAge(age) {
-    if (age >= 18) {
-        return true
+console.log('Задание к уроку 10.7.')
+console.log('--- Палиндром ---.')
+function palindrome(str) {
+    // Меняем регистр строки на нижний убираем пробелы и знаки препенания
+    str = str.toLowerCase().replace(/[^а-яa-z1-9]/gi, '');
+    // Переворачиваем строку и возвращаем результат сравнения
+    // return str === str.split('').reverse().join(''); // в коссоле получаем true или false
+    // или при помощи конструкции IF ... ELSE ...
+    if ( str === str.split('').reverse().join('')) {
+        console.log(`${str} - это палиндром!`);
     } else {
-        return 'Вход запрещен'
+        console.log(`${str} - это не палиндром!`);
     }
 }
-console.log(checkAge(18))
+palindrome('Шалаш');
+palindrome('101');
+palindrome('компьютер');
+palindrome('Лидер бодро, гордо бредил.');
+palindrome('Лидер бодро, гордо бродил.');
+//  =========================================================
+console.log('--- Простые числа ----');
 
-//  function expression
-let greeting = function () {
-    console.log('Я вас приветствую');
+function simpleNumber (number) {
+    if (number === 0) {
+        console.log(`${number} - Число равно нулю`)
+        return false;
+    } else {
+        for(let i = 2; i < number; i++) {
+            if(number % i === 0) {
+                console.log(`${number} - Не простое число.`)
+                return false;
+            }
+        }
+        console.log(`${number} - Простое число.`)
+        return true;
+    }
 }
-console.log(greeting)
-greeting()
-
-let func = greeting;
-console.log(func)
-
-// стрелочные функции
-let numbers = [6, 187, 66, 4, 67, 30, 18];
-console.log(numbers.sort((a, b) => a - b));
-
-let sum1 = (a, b) => a + b;
-
-let sum2 = function (a, b) {
-    return a + b;
-};
-console.log(sum1(5, 6))
-console.log(sum2(5, 6))
-
-let mult = c => c * 2;
-console.log(mult(9));
-
-let greeting1 = () => console.log('Добрый день');
-greeting1()
-
-let sum3 = (a, b) => {
-    let result = a + b;
-    return result;
+simpleNumber(5);
+// =====================================================
+console.log('--- Возраст по дате рождения ----');
+function getAge(dateStr) {
+    let today = new Date();
+    let birthDate = new Date(dateStr);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let month = today.getMonth() - birthDate.getMonth();
+    if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
 }
-console.log(sum3(7, 3));
+console.log('Возраст: ' + getAge('1977.05.26'));  // Возраст по деню рождения - год/месяц/число
+// ==========================================================
+// Дата - выходной день
+console.log('--- Был ли введенный день выходным ---')
+
+function checkDate(dateStr) {
+    const [day, month, year] = dateStr.split('.');
+    
+    const date = new Date(year, month - 1, day);
+    
+    return (date.getDay() === 0 || date.getDay() === 6);
+}
+console.log(checkDate('06.02.2021')); // true - выходной день
+console.log(checkDate('04.02.2021')); // false - не выходной день
+//==============
+let weekendDay =  function(date){
+    let day = new Date(date);
+    
+    if(day.getDay() === 6 || day.getDay() === 0)
+    {
+        return `${day} выходной день`;
+    }
+    else {
+        return `${day} не выходной день`;
+    }
+}
+
+console.log(weekendDay('February 10, 2001'));
