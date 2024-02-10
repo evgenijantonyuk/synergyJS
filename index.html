@@ -6,37 +6,10 @@
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="css/myHomeWorkCSS.css">
-<!--	<script defer src="index.js"></script>-->
-	<title>Document</title>
+	<title>JS Document</title>
 </head>
 <body>
-<script>
-	// function readBook(bookName, callback) {
-	// 	alert(`Reading book ${bookName} in process.`);
-	// 	callback();
-	// }
-	//
-	// readBook('The Art of Computer Programming', function () {
-	// 	alert('Reading is finished!');
-	// });
-	
-	function loadNewScript(src, callback) {
-		let script = document.createElement('script');
-		script.src = src;
-		
-		script.onload = () => callback(null, script);
-		script.onerror = () => callback(new Error(`Script download error ${src}`));
-		
-		document.head.append(script);
-	}
-loadNewScript('myScript.js', function (error, script) {
-	if (error) {
-		alert('Error')
-	} else {
-		veryShortFunction()
-	}
-});
-	
-</script>
+<script src="myScript.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
