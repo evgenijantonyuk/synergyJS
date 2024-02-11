@@ -24,7 +24,7 @@ function creatingPage() {
     postLink.append(postTitle);
     postLink.append(postContent);
 }
-// creatingPage()
+creatingPage()
 
 
 
