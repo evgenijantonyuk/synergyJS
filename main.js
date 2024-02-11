@@ -1,3 +1,4 @@
+
 function creatingPage() {
     let postWrap = document.createElement('div');
     let postItem = document.createElement('div')
@@ -23,7 +24,8 @@ function creatingPage() {
     postLink.append(postTitle);
     postLink.append(postContent);
 }
-creatingPage()
+// creatingPage()
+
 
 
 

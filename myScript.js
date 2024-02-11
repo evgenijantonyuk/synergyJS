@@ -1,4 +1,5 @@
 
+
 function loadNewScript(src, callback) {
     let script = document.createElement('script');
     script.src = src;
@@ -10,10 +11,13 @@ function loadNewScript(src, callback) {
 }
 loadNewScript('myScript.js', function (error, script) {
     if (error) {
-        alert('Error')
+        alert('Error');
     } else {
-        // alert('Все хорошо!')
+        creatingPage();
     }
 });
+
+
+
 
 
