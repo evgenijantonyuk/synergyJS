@@ -35,6 +35,13 @@ function loadNewScript(src, callback) {
     
     document.head.append(script);
 }
+loadNewScript('myScript.js', function (error, script) {
+    if (error) {
+        alert('Error');
+    } else {
+        creatingPage();
+    }
+});
 loadNewScript()
 
 
