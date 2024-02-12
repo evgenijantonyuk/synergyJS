@@ -18,7 +18,6 @@
 // });
 
 let isScriptLoaded = false;
-
 function loadNewScript(src, callback) {
     if (isScriptLoaded) {
         return;
@@ -33,7 +32,7 @@ function loadNewScript(src, callback) {
     };
     script.onerror = () => callback(new Error(`Script download error! ${src}`));
     
-    document.head.append(script);
+     document.head.append(script);
 }
 loadNewScript('myScript.js', function (error, script) {
     if (error) {
@@ -42,7 +41,7 @@ loadNewScript('myScript.js', function (error, script) {
         creatingPage();
     }
 });
-loadNewScript()
+
 
 
 
