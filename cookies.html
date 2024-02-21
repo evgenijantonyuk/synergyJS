@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Cookies</title>
+	<link rel="stylesheet" href="css/homeWorkCookies.css">
+	<script defer src="js/homeWorkCookies.js"></script>
+<!--	<script defer src="js/lessonCookies.js"></script>-->
+</head>
+<body>
+<form class="container">
+	<label for="inputName">Введите ваше имя:</label>
+	<br>
+	<input class = "comment" id="inputName" placeholder="Введите ваше имя">
+	<br>
+	<button class="input-button" onclick = "localStorage.removeItem('inputName'); inputName.value = '' ">Очистить</button>
+</form>
+
+</body>
+</html>
