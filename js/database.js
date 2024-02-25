@@ -112,4 +112,30 @@ resqueOpen.onupgradeneeded = function (event) {
 //     console.log('Не удалось удалить базу данных.')
 // }
 //
+//  ================== Dark and white them on window
+function toggle(on) {
+    if (on) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+}
+
+function save(on) {
+    localStorage.setItem('darkTheme', on.toString());
+}
+
+function load() {
+    return localStorage.getItem('darkTheme') === 'true';
+}
+
+function onChange(checkbox) {
+    const value = checkbox.checked;
+    toggle(value);
+    save(value);
+}
+
+const initialValue = load();
+toggle(initialValue);
+document.querySelector('#darkTheme').checked = initialValue;
 
