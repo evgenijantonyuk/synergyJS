@@ -112,7 +112,7 @@ resqueOpen.onupgradeneeded = function (event) {
 //     console.log('Не удалось удалить базу данных.')
 // }
 //
-//  ================== Dark and white them on window
+//  ================== Dark and white them on window - example localStorage
 function toggle(on) {
     if (on) {
         document.documentElement.classList.add('dark');
